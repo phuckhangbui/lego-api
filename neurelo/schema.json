@@ -1,0 +1,170 @@
+{
+  "objects": {
+    "comments": {
+      "properties": {
+        "comment_id": {
+          "type": "integer",
+          "identifier": true,
+          "default": {
+            "function": "autoincrement"
+          }
+        },
+        "comment": {
+          "type": "string",
+          "sourceType": "Text"
+        },
+        "commented_at": {
+          "type": "string",
+          "format": "date-time",
+          "sourceType": "Timestamp",
+          "default": {
+            "function": "now"
+          }
+        },
+        "post_id": {
+          "type": "integer"
+        },
+        "comments_posts_ref": {
+          "$ref": "#/objects/posts",
+          "relation": {
+            "attrKey": [
+              "post_id"
+            ],
+            "foreignAttrKey": [
+              "post_id"
+            ]
+          }
+        },
+        "user_id": {
+          "type": "integer"
+        },
+        "comments_users_ref": {
+          "$ref": "#/objects/users",
+          "relation": {
+            "attrKey": [
+              "user_id"
+            ],
+            "foreignAttrKey": [
+              "user_id"
+            ]
+          }
+        }
+      }
+    },
+    "posts": {
+      "properties": {
+        "post_id": {
+          "type": "integer",
+          "identifier": true,
+          "default": {
+            "function": "autoincrement"
+          }
+        },
+        "content": {
+          "type": "string",
+          "sourceType": "Text",
+          "nullable": true
+        },
+        "title": {
+          "type": "string",
+          "sourceType": [
+            "VarChar",
+            200
+          ]
+        },
+        "status": {
+          "$ref": "#/enums/post_status",
+          "default": {
+            "value": "DRAFT"
+          }
+        },
+        "posted_at": {
+          "type": "string",
+          "format": "date-time",
+          "sourceType": "Timestamp",
+          "default": {
+            "function": "now"
+          }
+        },
+        "user_id": {
+          "type": "integer"
+        },
+        "posts_users_ref": {
+          "$ref": "#/objects/users",
+          "relation": {
+            "attrKey": [
+              "user_id"
+            ],
+            "foreignAttrKey": [
+              "user_id"
+            ]
+          }
+        },
+        "posts_comments_ref": {
+          "type": "array",
+          "items": {
+            "$ref": "#/objects/comments"
+          },
+          "nullable": true
+        }
+      }
+    },
+    "users": {
+      "properties": {
+        "user_id": {
+          "type": "integer",
+          "identifier": true,
+          "default": {
+            "function": "autoincrement"
+          }
+        },
+        "email": {
+          "type": "string",
+          "unique": true,
+          "sourceType": [
+            "VarChar",
+            100
+          ]
+        },
+        "username": {
+          "type": "string",
+          "unique": true,
+          "sourceType": [
+            "VarChar",
+            50
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "sourceType": "Timestamp",
+          "default": {
+            "function": "now"
+          }
+        },
+        "users_posts_ref": {
+          "type": "array",
+          "items": {
+            "$ref": "#/objects/posts"
+          },
+          "nullable": true
+        },
+        "users_comments_ref": {
+          "type": "array",
+          "items": {
+            "$ref": "#/objects/comments"
+          },
+          "nullable": true
+        }
+      }
+    }
+  },
+  "enums": {
+    "post_status": [
+      "DELETED",
+      "ARCHIVED",
+      "PUBLISHED",
+      "DRAFT"
+    ]
+  }
+}

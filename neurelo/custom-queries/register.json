@@ -1,0 +1,30 @@
+{
+  "name": "register",
+  "query": "INSERT INTO\n  users (displayName, email, password, username)\nVALUES\n  (\n    {{ displayName }},\n    {{ email }},\n    {{ password }},\n    {{ username }}\n  )",
+  "parameters": [
+    {
+      "name": "displayName",
+      "type": "String",
+      "spread": false
+    },
+    {
+      "name": "email",
+      "type": "String",
+      "spread": false
+    },
+    {
+      "name": "password",
+      "type": "String",
+      "spread": false
+    },
+    {
+      "name": "username",
+      "type": "String",
+      "spread": false
+    }
+  ],
+  "httpPath": "register",
+  "httpMethod": "GET",
+  "apiMode": "REST",
+  "gqlOperationType": "QUERY"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "login",
+  "query": "SELECT\n  *\nFROM\n  users\nWHERE\n  email = {{ email }}\n  AND password = {{ password }}",
+  "parameters": [
+    {
+      "name": "email",
+      "type": "String",
+      "spread": false
+    },
+    {
+      "name": "password",
+      "type": "String",
+      "spread": false
+    }
+  ],
+  "httpPath": "login",
+  "httpMethod": "GET",
+  "apiMode": "REST",
+  "gqlOperationType": "QUERY"
+}

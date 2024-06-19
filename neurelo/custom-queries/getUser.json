@@ -1,0 +1,15 @@
+{
+  "name": "getUser",
+  "query": "SELECT * FROM Account WHERE UID ={{UID}}",
+  "parameters": [
+    {
+      "name": "UID",
+      "type": "String",
+      "spread": false
+    }
+  ],
+  "httpPath": "getUser",
+  "httpMethod": "GET",
+  "apiMode": "REST",
+  "gqlOperationType": "QUERY"
+}

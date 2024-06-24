@@ -1,6 +1,6 @@
 {
   "name": "searchLego",
-  "query": "SELECT\r\n    l.Id,\r\n    l.Name,\r\n    l.Price,\r\n    l.Image,\r\n    JSON_ARRAYAGG(\r\n        JSON_OBJECT(\r\n            'Id', t.Id,\r\n            'Name', t.Name\r\n        )\r\n    ) AS Theme\r\nFROM\r\n    Lego l\r\nJOIN LegoTheme lt ON\r\n    l.Id = lt.LegoId\r\nJOIN Theme t ON\r\n    t.Id = lt.ThemeId\r\nWHERE l.Name LIKE CONCAT('%', {{Name}}, '%')\r\nGROUP BY\r\n    l.Id,\r\n    l.Name,\r\n    l.Price,\r\n    l.Image;",
+  "query": "SELECT\r\n    l.Id,\r\n    l.Name,\r\n    l.Price,\r\n    l.Image,\r\n    JSON_ARRAYAGG(\r\n        JSON_OBJECT(\r\n            'Id', t.Id,\r\n            'Name', t.Name\r\n        )\r\n    ) AS Theme\r\nFROM\r\n    Lego l\r\nJOIN LegoTheme lt ON\r\n    l.Id = lt.LegoId\r\nJOIN Theme t ON\r\n    t.Id = lt.ThemeId\r\nWHERE l.Name LIKE CONCAT('%', {{Name}}, '%')   \r\nGROUP BY\r\n    l.Id,\r\n    l.Name,\r\n    l.Price,\r\n    l.Image;",
   "parameters": [
     {
       "name": "Name",

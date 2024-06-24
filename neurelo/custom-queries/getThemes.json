@@ -1,6 +1,6 @@
 {
   "name": "getThemes",
-  "query": "SELECT * \r\nFROM Theme",
+  "query": "SELECT Id AS \"id\",\r\n       Name AS \"name\"\r\nFROM Theme",
   "parameters": [],
   "httpPath": "getThemes",
   "httpMethod": "GET",

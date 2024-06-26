@@ -19,7 +19,7 @@
     }
   ],
   "httpPath": "createAccount",
-  "httpMethod": "GET",
+  "httpMethod": "POST",
   "apiMode": "REST",
-  "gqlOperationType": "QUERY"
+  "gqlOperationType": "MUTATION"
 }

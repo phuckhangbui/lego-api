@@ -1,0 +1,9 @@
+{
+  "name": "getLegoList",
+  "query": "SELECT\r\n    l.Id AS id,\r\n    l.Name AS name,\r\n    l.Price AS price,\r\n    l.Image AS image,\r\n    JSON_ARRAYAGG(\r\n        JSON_OBJECT(\r\n            'id', t.Id,\r\n            'name', t.Name\r\n        )\r\n    ) AS themes\r\nFROM\r\n    Lego l\r\nJOIN LegoTheme lt ON\r\n    l.Id = lt.LegoId\r\nJOIN Theme t ON\r\n    t.Id = lt.ThemeId\r\nGROUP BY\r\n    l.Id,\r\n    l.Name,\r\n    l.Price,\r\n    l.Image;\r\n",
+  "parameters": [],
+  "httpPath": "getLegoList",
+  "httpMethod": "GET",
+  "apiMode": "REST",
+  "gqlOperationType": "QUERY"
+}

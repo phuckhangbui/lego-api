@@ -1,0 +1,25 @@
+{
+  "name": "createAccount",
+  "query": "INSERT INTO\r\n  Account (Address, Email, Username)\r\nVALUES\r\n  (\r\n    {{ Address }},\r\n    {{ Email }},\r\n    {{ Username }}\r\n  )",
+  "parameters": [
+    {
+      "name": "Address",
+      "type": "String",
+      "spread": false
+    },
+    {
+      "name": "Email",
+      "type": "String",
+      "spread": false
+    },
+    {
+      "name": "Username",
+      "type": "String",
+      "spread": false
+    }
+  ],
+  "httpPath": "createAccount",
+  "httpMethod": "GET",
+  "apiMode": "REST",
+  "gqlOperationType": "QUERY"
+}

@@ -1,0 +1,221 @@
+{
+  "objects": {
+    "LegoTheme": {
+      "properties": {
+        "LegoId": {
+          "type": "integer"
+        },
+        "ThemeId": {
+          "type": "integer"
+        },
+        "Id": {
+          "type": "integer",
+          "identifier": true
+        },
+        "Theme_ref": {
+          "$ref": "#/objects/Theme",
+          "relation": {
+            "attrKey": [
+              "ThemeId"
+            ],
+            "foreignAttrKey": [
+              "Id"
+            ]
+          }
+        },
+        "Lego_ref": {
+          "$ref": "#/objects/Lego",
+          "relation": {
+            "attrKey": [
+              "LegoId"
+            ],
+            "foreignAttrKey": [
+              "Id"
+            ]
+          }
+        }
+      }
+    },
+    "Theme": {
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Id": {
+          "type": "integer",
+          "identifier": true
+        },
+        "LegoTheme_ref": {
+          "type": "array",
+          "items": {
+            "$ref": "#/objects/LegoTheme"
+          }
+        }
+      }
+    },
+    "Image": {
+      "properties": {
+        "LegoId": {
+          "type": "integer",
+          "default": {
+            "function": "dbgenerated"
+          }
+        },
+        "ImageUrl": {
+          "type": "string"
+        },
+        "ImageId": {
+          "type": "integer",
+          "identifier": true
+        },
+        "Lego_ref": {
+          "$ref": "#/objects/Lego",
+          "relation": {
+            "attrKey": [
+              "LegoId"
+            ],
+            "foreignAttrKey": [
+              "Id"
+            ]
+          }
+        }
+      }
+    },
+    "Lego": {
+      "properties": {
+        "ThemeId": {
+          "type": "integer"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Image": {
+          "type": "string"
+        },
+        "Price": {
+          "type": "number",
+          "format": "float"
+        },
+        "ReleaseYear": {
+          "type": "integer"
+        },
+        "Number": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Id": {
+          "type": "integer",
+          "identifier": true
+        },
+        "BillingDetail_ref": {
+          "type": "array",
+          "items": {
+            "$ref": "#/objects/BillingDetail"
+          }
+        },
+        "LegoTheme_ref": {
+          "type": "array",
+          "items": {
+            "$ref": "#/objects/LegoTheme"
+          }
+        },
+        "Image_ref": {
+          "type": "array",
+          "items": {
+            "$ref": "#/objects/Image"
+          }
+        }
+      }
+    },
+    "BillingDetail": {
+      "properties": {
+        "BillingId": {
+          "type": "integer"
+        },
+        "Quantity": {
+          "type": "integer"
+        },
+        "LegoId": {
+          "type": "integer"
+        },
+        "Id": {
+          "type": "integer",
+          "identifier": true
+        },
+        "Lego_ref": {
+          "$ref": "#/objects/Lego",
+          "relation": {
+            "attrKey": [
+              "LegoId"
+            ],
+            "foreignAttrKey": [
+              "Id"
+            ]
+          }
+        }
+      }
+    },
+    "Billing": {
+      "properties": {
+        "Status": {
+          "type": "integer"
+        },
+        "DatePaid": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "DateCreated": {
+          "type": "string",
+          "format": "date-time",
+          "default": {
+            "function": "now"
+          }
+        },
+        "TotalPrice": {
+          "type": "number",
+          "format": "float"
+        },
+        "Id": {
+          "type": "integer",
+          "identifier": true
+        },
+        "AccountEmail": {
+          "type": "string"
+        },
+        "Account_ref": {
+          "$ref": "#/objects/Account",
+          "relation": {
+            "attrKey": [
+              "AccountEmail"
+            ],
+            "foreignAttrKey": [
+              "Email"
+            ]
+          }
+        }
+      }
+    },
+    "Account": {
+      "properties": {
+        "Address": {
+          "type": "string"
+        },
+        "Username": {
+          "type": "string"
+        },
+        "Email": {
+          "type": "string",
+          "identifier": true
+        },
+        "Billing_ref": {
+          "type": "array",
+          "items": {
+            "$ref": "#/objects/Billing"
+          }
+        }
+      }
+    }
+  }
+}

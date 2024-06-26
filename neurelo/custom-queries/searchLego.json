@@ -9,7 +9,7 @@
     }
   ],
   "httpPath": "searchLego",
-  "httpMethod": "POST",
+  "httpMethod": "GET",
   "apiMode": "REST",
-  "gqlOperationType": "MUTATION"
+  "gqlOperationType": "QUERY"
 }

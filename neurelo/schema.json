@@ -170,8 +170,8 @@
     },
     "Billing": {
       "properties": {
-        "AccountUID": {
-          "type": "string"
+        "AccountID": {
+          "type": "integer"
         },
         "Status": {
           "type": "integer"
@@ -199,10 +199,10 @@
           "$ref": "#/objects/Account",
           "relation": {
             "attrKey": [
-              "AccountUID"
+              "AccountID"
             ],
             "foreignAttrKey": [
-              "UID"
+              "ID"
             ]
           }
         },
@@ -226,8 +226,8 @@
           "type": "string",
           "unique": true
         },
-        "UID": {
-          "type": "string",
+        "ID": {
+          "type": "integer",
           "identifier": true
         },
         "Billing_ref": {

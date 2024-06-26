@@ -144,17 +144,6 @@
           "type": "integer",
           "identifier": true
         },
-        "Billing_ref": {
-          "$ref": "#/objects/Billing",
-          "relation": {
-            "attrKey": [
-              "BillingId"
-            ],
-            "foreignAttrKey": [
-              "Id"
-            ]
-          }
-        },
         "Lego_ref": {
           "$ref": "#/objects/Lego",
           "relation": {
@@ -170,9 +159,6 @@
     },
     "Billing": {
       "properties": {
-        "AccountID": {
-          "type": "integer"
-        },
         "Status": {
           "type": "integer"
         },
@@ -195,21 +181,18 @@
           "type": "integer",
           "identifier": true
         },
+        "AccountEmail": {
+          "type": "string"
+        },
         "Account_ref": {
           "$ref": "#/objects/Account",
           "relation": {
             "attrKey": [
-              "AccountID"
+              "AccountEmail"
             ],
             "foreignAttrKey": [
-              "ID"
+              "Email"
             ]
-          }
-        },
-        "BillingDetail_ref": {
-          "type": "array",
-          "items": {
-            "$ref": "#/objects/BillingDetail"
           }
         }
       }
@@ -224,10 +207,6 @@
         },
         "Email": {
           "type": "string",
-          "unique": true
-        },
-        "ID": {
-          "type": "integer",
           "identifier": true
         },
         "Billing_ref": {

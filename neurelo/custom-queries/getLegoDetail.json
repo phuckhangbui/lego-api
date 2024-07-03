@@ -1,0 +1,9 @@
+{
+  "name": "getLegoDetail",
+  "query": "WITH ImageData AS (\r\n    SELECT \r\n        LegoId,\r\n        JSON_ARRAYAGG(ImageUrl) AS images\r\n    FROM Image\r\n    WHERE LegoId = 1\r\n    GROUP BY LegoId\r\n)\r\nSELECT\r\n    l.Id AS id,\r\n    l.Name AS name,\r\n    l.Price AS price,\r\n    JSON_ARRAYAGG(\r\n        JSON_OBJECT(\r\n            'id', t.Id,\r\n            'name', t.Name\r\n        )\r\n    ) AS themes,\r\n    JSON_MERGE(\r\n        JSON_ARRAY(l.Image),\r\n        COALESCE(id.images, JSON_ARRAY())\r\n    ) AS image,\r\n    l.Description AS description,\r\n    l.ReleaseYear AS releaseYear,\r\n    l.Number AS number\r\nFROM\r\n    Lego l\r\nJOIN LegoTheme lt ON\r\n    l.Id = lt.LegoId\r\nJOIN Theme t ON\r\n    t.Id = lt.ThemeId\r\nLEFT JOIN ImageData id ON\r\n    l.Id = id.LegoId\r\nWHERE l.Id = 1\r\nGROUP BY\r\n    l.Id,\r\n    l.Name,\r\n    l.Price,\r\n    l.Image,\r\n    id.images;\r\n",
+  "parameters": [],
+  "httpPath": "getLegoDetail",
+  "httpMethod": "GET",
+  "apiMode": "REST",
+  "gqlOperationType": "QUERY"
+}

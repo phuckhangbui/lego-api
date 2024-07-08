@@ -199,10 +199,13 @@
     },
     "Account": {
       "properties": {
+        "PhoneNumber": {
+          "type": "string"
+        },
         "Address": {
           "type": "string"
         },
-        "Username": {
+        "DisplayName": {
           "type": "string"
         },
         "Email": {

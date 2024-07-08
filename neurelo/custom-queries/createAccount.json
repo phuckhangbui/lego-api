@@ -1,6 +1,6 @@
 {
   "name": "createAccount",
-  "query": "INSERT INTO\r\n  Account (Address, Email, Username)\r\nVALUES\r\n  (\r\n    {{ Address }},\r\n    {{ Email }},\r\n    {{ Username }}\r\n  )",
+  "query": "INSERT INTO\r\n  Account (Address, Email, Username, PhoneNumber)\r\nVALUES\r\n  (\r\n    {{ Address }},\r\n    {{ Email }},\r\n    {{ Username }},\r\n    {{PhoneNumber}}\r\n  )",
   "parameters": [
     {
       "name": "Address",
@@ -14,6 +14,11 @@
     },
     {
       "name": "Username",
+      "type": "String",
+      "spread": false
+    },
+    {
+      "name": "PhoneNumber",
       "type": "String",
       "spread": false
     }

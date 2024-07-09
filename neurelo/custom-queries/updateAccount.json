@@ -1,0 +1,30 @@
+{
+  "name": "updateAccount",
+  "query": "UPDATE Account\r\nSET\r\n  Address = {{ Address }},\r\n  DisplayName = {{ DisplayName }},\r\n  PhoneNumber = {{ PhoneNumber }},\r\nWHERE\r\n  Email = {{ Email }}",
+  "parameters": [
+    {
+      "name": "Address",
+      "type": "String",
+      "spread": false
+    },
+    {
+      "name": "DisplayName",
+      "type": "String",
+      "spread": false
+    },
+    {
+      "name": "PhoneNumber",
+      "type": "String",
+      "spread": false
+    },
+    {
+      "name": "Email",
+      "type": "String",
+      "spread": false
+    }
+  ],
+  "httpPath": "updateAccount",
+  "httpMethod": "POST",
+  "apiMode": "REST",
+  "gqlOperationType": "MUTATION"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "updateAccountPic",
+  "query": "UPDATE Account\nSET\n  ProfilePicUrl = {{ ProfilePicUrl }}\nWHERE\n  Email = {{ Email }}",
+  "parameters": [
+    {
+      "name": "ProfilePicUrl",
+      "type": "String",
+      "spread": false
+    },
+    {
+      "name": "Email",
+      "type": "String",
+      "spread": false
+    }
+  ],
+  "httpPath": "updateAccountPic",
+  "httpMethod": "POST",
+  "apiMode": "REST",
+  "gqlOperationType": "MUTATION"
+}

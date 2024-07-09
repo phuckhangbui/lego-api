@@ -1,6 +1,6 @@
 {
   "name": "updateAccount",
-  "query": "UPDATE Account\r\nSET\r\n  Address = {{ Address }},\r\n  DisplayName = {{ DisplayName }},\r\n  PhoneNumber = {{ PhoneNumber }},\r\nWHERE\r\n  Email = {{ Email }}",
+  "query": "UPDATE Account\r\nSET\r\n  Address = {{ Address }},\r\n  DisplayName = {{ DisplayName }},\r\n  PhoneNumber = {{ PhoneNumber }}\r\nWHERE\r\n  Email = {{ Email }}",
   "parameters": [
     {
       "name": "Address",

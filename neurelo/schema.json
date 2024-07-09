@@ -199,14 +199,21 @@
     },
     "Account": {
       "properties": {
+        "ProfilePicUrl": {
+          "type": "string",
+          "nullable": true
+        },
         "PhoneNumber": {
-          "type": "string"
+          "type": "string",
+          "nullable": true
         },
         "Address": {
-          "type": "string"
+          "type": "string",
+          "nullable": true
         },
         "DisplayName": {
-          "type": "string"
+          "type": "string",
+          "nullable": true
         },
         "Email": {
           "type": "string",

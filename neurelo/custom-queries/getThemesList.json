@@ -1,0 +1,9 @@
+{
+  "name": "getThemesList",
+  "query": "SELECT * FROM Theme",
+  "parameters": [],
+  "httpPath": "getThemesList",
+  "httpMethod": "GET",
+  "apiMode": "REST",
+  "gqlOperationType": "QUERY"
+}

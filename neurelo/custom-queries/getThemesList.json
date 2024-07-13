@@ -1,6 +1,6 @@
 {
   "name": "getThemesList",
-  "query": "SELECT * FROM Theme",
+  "query": "SELECT t.id, t.Name AS \"name\" \r\nFROM Theme t",
   "parameters": [],
   "httpPath": "getThemesList",
   "httpMethod": "GET",

@@ -1,6 +1,6 @@
 {
   "name": "getThemesCount",
-  "query": "SELECT\r\n    t.id ,\r\n    t.name AS themeName,\r\n    COUNT(*) AS numOfLegos\r\nFROM\r\n    Lego l\r\nJOIN LegoTheme lt ON\r\n    l.Id = lt.LegoId\r\nJOIN Theme t ON\r\n    t.Id = lt.ThemeId\r\nGROUP BY\r\n    t.id,\r\n    t.name;",
+  "query": "SELECT\r\n    t.id ,\r\n    t.name AS name,\r\n    COUNT(*) AS numOfLegos\r\nFROM\r\n    Lego l\r\nJOIN LegoTheme lt ON\r\n    l.Id = lt.LegoId\r\nJOIN Theme t ON\r\n    t.Id = lt.ThemeId\r\nGROUP BY\r\n    t.id,\r\n    t.name;",
   "parameters": [],
   "httpPath": "getThemesCount",
   "httpMethod": "GET",
